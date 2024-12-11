@@ -22,6 +22,10 @@ import { Button } from "~/components/ui/Button";
 import { truncateAddress } from "~/lib/truncateAddress";
 import { base, optimism } from "wagmi/chains";
 import { BaseError, UserRejectedRequestError } from "viem";
+import Head from "next/head";
+import styles from "~/app/index.module.css";
+import Board from "~/components/2048/board";
+import Score from "~/components/2048/score";
 
 export default function Demo(
   { title }: { title?: string } = { title: "Frames v2 Demo" }
@@ -194,187 +198,43 @@ export default function Demo(
   }
 
   return (
-    <div className="w-[300px] mx-auto py-4 px-2">
-      <h1 className="text-2xl font-bold text-center mb-4">{title}</h1>
-
-      <div className="mb-4">
-        <h2 className="font-2xl font-bold">Context</h2>
-        <button
-          onClick={toggleContext}
-          className="flex items-center gap-2 transition-colors"
-        >
-          <span
-            className={`transform transition-transform ${
-              isContextOpen ? "rotate-90" : ""
-            }`}
+    <div className={styles.twenty48}>
+      <Head>
+        <title>Play 2048</title>
+        <meta
+          name="description"
+          content="Fully-functional 2048 game built in NextJS and TypeScript. Including animations."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="apple-touch-icon.png"
+        />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon16.png" />
+      </Head>
+      <header>
+        <h1>2048</h1>
+        <Score />
+      </header>
+      <main>
+        <Board />
+      </main>
+      <div>
+        <h2>🚀 Create your own game</h2>
+        <p>
+          Join my{" "}
+          <a
+            href="https://assets.mateu.sh/r/github-2048-in-react-readme"
+            target="_blank"
+            rel="noopener"
           >
-            ➤
-          </span>
-          Tap to expand
-        </button>
-
-        {isContextOpen && (
-          <div className="p-4 mt-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
-            <pre className="font-mono text-xs whitespace-pre-wrap break-words max-w-[260px] overflow-x-">
-              {JSON.stringify(context, null, 2)}
-            </pre>
-          </div>
-        )}
-      </div>
-
-      <div>
-        <h2 className="font-2xl font-bold">Actions</h2>
-
-        <div className="mb-4">
-          <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg my-2">
-            <pre className="font-mono text-xs whitespace-pre-wrap break-words max-w-[260px] overflow-x-">
-              sdk.actions.openUrl
-            </pre>
-          </div>
-          <Button onClick={openUrl}>Open Link</Button>
-        </div>
-
-        <div className="mb-4">
-          <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg my-2">
-            <pre className="font-mono text-xs whitespace-pre-wrap break-words max-w-[260px] overflow-x-">
-              sdk.actions.openUrl
-            </pre>
-          </div>
-          <Button onClick={openWarpcastUrl}>Open Warpcast Link</Button>
-        </div>
-
-        <div className="mb-4">
-          <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg my-2">
-            <pre className="font-mono text-xs whitespace-pre-wrap break-words max-w-[260px] overflow-x-">
-              sdk.actions.close
-            </pre>
-          </div>
-          <Button onClick={close}>Close Frame</Button>
-        </div>
-      </div>
-
-      <div>
-        <h2 className="font-2xl font-bold">Add to client & notifications</h2>
-
-        <div className="mt-2 mb-4 text-sm">
-          Client fid {context?.client.clientFid},
-          {context?.client.added
-            ? " frame added to client,"
-            : " frame not added to client,"}
-          {notificationDetails
-            ? " notifications enabled"
-            : " notifications disabled"}
-        </div>
-
-        <div className="mb-4">
-          <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg my-2">
-            <pre className="font-mono text-xs whitespace-pre-wrap break-words max-w-[260px] overflow-x-">
-              sdk.actions.addFrame
-            </pre>
-          </div>
-          {addFrameResult && (
-            <div className="mb-2 text-sm">
-              Add frame result: {addFrameResult}
-            </div>
-          )}
-          <Button onClick={addFrame} disabled={context?.client.added}>
-            Add frame to client
-          </Button>
-        </div>
-
-        {sendNotificationResult && (
-          <div className="mb-2 text-sm">
-            Send notification result: {sendNotificationResult}
-          </div>
-        )}
-        <div className="mb-4">
-          <Button onClick={sendNotification} disabled={!notificationDetails}>
-            Send notification
-          </Button>
-        </div>
-      </div>
-
-      <div>
-        <h2 className="font-2xl font-bold">Wallet</h2>
-
-        {address && (
-          <div className="my-2 text-xs">
-            Address: <pre className="inline">{truncateAddress(address)}</pre>
-          </div>
-        )}
-
-        {chainId && (
-          <div className="my-2 text-xs">
-            Chain ID: <pre className="inline">{chainId}</pre>
-          </div>
-        )}
-
-        <div className="mb-4">
-          <Button
-            onClick={() =>
-              isConnected
-                ? disconnect()
-                : connect({ connector: config.connectors[0] })
-            }
-          >
-            {isConnected ? "Disconnect" : "Connect"}
-          </Button>
-        </div>
-
-        <div className="mb-4">
-          <SignMessage />
-        </div>
-
-        {isConnected && (
-          <>
-            <div className="mb-4">
-              <SendEth />
-            </div>
-            <div className="mb-4">
-              <Button
-                onClick={sendTx}
-                disabled={!isConnected || isSendTxPending}
-                isLoading={isSendTxPending}
-              >
-                Send Transaction (contract)
-              </Button>
-              {isSendTxError && renderError(sendTxError)}
-              {txHash && (
-                <div className="mt-2 text-xs">
-                  <div>Hash: {truncateAddress(txHash)}</div>
-                  <div>
-                    Status:{" "}
-                    {isConfirming
-                      ? "Confirming..."
-                      : isConfirmed
-                      ? "Confirmed!"
-                      : "Pending"}
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="mb-4">
-              <Button
-                onClick={signTyped}
-                disabled={!isConnected || isSignTypedPending}
-                isLoading={isSignTypedPending}
-              >
-                Sign Typed Data
-              </Button>
-              {isSignTypedError && renderError(signTypedError)}
-            </div>
-            <div className="mb-4">
-              <Button
-                onClick={handleSwitchChain}
-                disabled={isSwitchChainPending}
-                isLoading={isSwitchChainPending}
-              >
-                Switch to {chainId === base.id ? "Optimism" : "Base"}
-              </Button>
-              {isSwitchChainError && renderError(switchChainError)}
-            </div>
-          </>
-        )}
+            Udemy course
+          </a>{" "}
+          and learn how to create the 2048 game from scratch.
+        </p>
       </div>
     </div>
   );

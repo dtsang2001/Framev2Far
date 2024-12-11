@@ -15,7 +15,10 @@
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-responsive": "9.0.2",
     "viem": "2.x",
+    "lodash": "4.17.21",
+    "uid": "2.0.2",
     "wagmi": "^2.13.0"
   },
   "devDependencies": {
