@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useCallback, useState, useMemo } from "react";
+import { useEffect, useCallback, useState } from "react";
 import sdk, {
   FrameNotificationDetails,
   type FrameContext,
 } from "@farcaster/frame-sdk";
 import {
   useAccount,
-  useSendTransaction,
-  useSignMessage,
-  useSignTypedData,
-  useWaitForTransactionReceipt,
   useDisconnect,
   useConnect,
   useSwitchChain,
@@ -28,7 +24,7 @@ import Board from "~/components/2048/board";
 import Score from "~/components/2048/score";
 
 export default function Demo(
-  { title }: { title?: string } = { title: "Frames v2 Demo" }
+  { title }: { title?: string } = { title: "Play 2048 in Farcaster" }
 ) {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
   const [context, setContext] = useState<FrameContext>();
@@ -98,7 +94,7 @@ export default function Demo(
   return (
     <div className={styles.twenty48}>
       <Head>
-        <title>Play 2048 in Farcaster FrameV2</title>
+        <title>{title}</title>
         <meta
           name="description"
           content="Play 2048 in Farcaster FrameV2 - By dangs.eth"

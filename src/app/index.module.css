@@ -103,5 +103,5 @@
   min-width: 56px;
   min-height: 56px;
   object-fit: cover;
-  border-radius: 100%;
+  border-radius: calc(var(--pixel-size)* 0.75);
 }
