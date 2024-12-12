@@ -70,7 +70,7 @@
   }
   /* -=-=-=-= END OF TEXT SIZE =-=-=-=- */
   
-  .tile2 {
+  /* .tile2 {
     box-shadow:
       0 0 30px 10px rgba(243, 215, 116, 0),
       inset 0 0 0 1px rgba(255, 255, 255, 0);
@@ -134,4 +134,71 @@
     box-shadow:
       0 0 30px 10px rgba(243, 215, 116, 0.55556),
       inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+  } */
+
+  .tile2 {
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0),
+      inset 0 0 0 1px rgba(255, 255, 255, 0);
   }
+  
+  .tile4 {
+    background: #d7c6f0; /* Tím nhạt */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0),
+      inset 0 0 0 1px rgba(255, 255, 255, 0);
+  }
+  
+  .tile8 {
+    background: #c99bdf; /* Tím pha hồng */
+  }
+  
+  .tile16 {
+    background: #b97fd4; /* Tím đậm */
+  }
+  
+  .tile32 {
+    background: #a85bc8; /* Tím đậm hơn */
+  }
+  
+  .tile64 {
+    background: #9747b6; /* Tím mạnh hơn */
+  }
+  
+  .tile128 {
+    background: #d0b0f5; /* Tím pastel sáng hơn */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0.2381),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+  }
+  
+  .tile256 {
+    background: #c39be8; /* Tím nhạt hơn */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0.31746),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+  }
+  
+  .tile512 {
+    background: #b584e4; /* Tím đậm hơn */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0.39683),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+  }
+  
+  .tile1024 {
+    background: #a56ee0; /* Tím đậm */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0.47619),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+  }
+  
+  .tile2048,
+  .tile4096,
+  .tile8192 {
+    background: #9c56e0; /* Tím đậm, gần màu hoa oải hương */
+    box-shadow:
+      0 0 30px 10px rgba(196, 168, 243, 0.55556),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+  }
+  

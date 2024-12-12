@@ -36,9 +36,7 @@ export default function Tile({ position, value }: TileProps) {
     transform: `scale(${scale})`,
     zIndex: value,
   };
-
-  console.log(value);
-
+  
   return (
     <div className={`${styles.tile} ${styles[`tile${value}`]}`} style={style}>
       {value}
