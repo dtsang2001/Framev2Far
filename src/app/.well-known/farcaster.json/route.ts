@@ -3,11 +3,9 @@ export async function GET() {
 
   const config = {
     accountAssociation: {
-      header:
-        "eyJmaWQiOjM2MjEsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgyY2Q4NWEwOTMyNjFmNTkyNzA4MDRBNkVBNjk3Q2VBNENlQkVjYWZFIn0",
-      payload: "eyJkb21haW4iOiJmcmFtZXMtdjIudmVyY2VsLmFwcCJ9",
-      signature:
-        "MHhiNDIwMzQ1MGZkNzgzYTExZjRiOTllZTFlYjA3NmMwOTdjM2JkOTY1NGM2ODZjYjkyZTAyMzk2Y2Q0YjU2MWY1MjY5NjI5ZGQ5NTliYjU0YzEwOGI4OGVmNjdjMTVlZTdjZDc2YTRiMGU5NzkzNzA3YzkxYzFkOWFjNTg0YmQzNjFi",
+      "header": "eyJmaWQiOjM2ODc1NywidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDgxNjFiMjZmYkExYTNlQUZCYTAxMzAzMDZkYzlhODZBQjE4Y2QxMDMifQ",
+      "payload": "eyJkb21haW4iOiJodHRwczovL2dhbWUtMjA0OC1ieS1kYW5ncy52ZXJjZWwuYXBwLyJ9",
+      "signature": "MHgxMzg3Nzk1MjliZWNjYzMwOWJkZmFiNGZkNzE3ODg4NWU1OTk5NjUxYjQ5NDNlYWQ4YTA1ODAyNDcyNTBhNmVlNGJiNGFmZWQ1YjQ1ZmYyY2I4MTE5OWQ0YjQ0YzBlMTA5OWNkZDJhMDEyNTVmYWNjNmM0MWZjNTI2YTQ4YmE2MTFi"
     },
     frame: {
       version: "0.1.3",
@@ -15,8 +13,7 @@ export async function GET() {
       iconUrl: `${appUrl}/icon.png`,
       splashImageUrl: `${appUrl}/splash.png`,
       splashBackgroundColor: "#8e71a7",
-      homeUrl: appUrl,
-      webhookUrl: `${appUrl}/api/webhook`,
+      homeUrl: appUrl
     },
   };
 
