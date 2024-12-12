@@ -5,7 +5,7 @@ const appUrl = process.env.NEXT_PUBLIC_URL;
 
 const frame = {
   version: "next",
-  imageUrl: `${appUrl}/opengraph-image`,
+  imageUrl: `${appUrl}/background.jpg`,
   button: {
     title: "Play 2048 in Farcaster",
     action: {
