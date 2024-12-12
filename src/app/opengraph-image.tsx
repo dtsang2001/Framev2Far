@@ -8,12 +8,13 @@ export const size = {
 
 export const contentType = "image/png";
 
+const appUrl = process.env.NEXT_PUBLIC_URL;
+const bg = `${appUrl}/background.jpg`
+
 export default async function Image() {
   return new ImageResponse(
     (
-      <div tw="h-full w-full flex flex-col justify-center items-center relative bg-white">
-        <h1 tw="text-6xl">Frames v2 Demo</h1>
-      </div>
+      <img src={bg} alt={"bg"} />
     ),
     {
       ...size,
