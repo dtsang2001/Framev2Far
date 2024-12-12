@@ -11,7 +11,7 @@ export const contentType = "image/png";
 export default async function Image() {
   return new ImageResponse(
     (
-      <img src="/background.jpg" alt={"bg"} />
+      <img src="/background.jpg" alt="bg" />
     ),
     {
       ...size,
