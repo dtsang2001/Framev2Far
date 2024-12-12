@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Farcaster Frames V2 Demo";
+export const alt = "Play 2048 in Farcaster FrameV2 - By dangs.eth";
 export const size = {
   width: 600,
   height: 400,

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const frame = {
     version: "next",
-    imageUrl: `${appUrl}/frames/hello/${name}/opengraph-image`,
+    imageUrl: `https://game-2048-by-dangs.vercel.app/background.jpg`,
     button: {
       title: "Launch Frame",
       action: {

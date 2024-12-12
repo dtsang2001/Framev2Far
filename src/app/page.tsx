@@ -5,7 +5,7 @@ const appUrl = process.env.NEXT_PUBLIC_URL;
 
 const frame = {
   version: "next",
-  imageUrl: `${appUrl}/bg-image`,
+  imageUrl: `https://game-2048-by-dangs.vercel.app/background.jpg`,
   button: {
     title: "Play 2048 in Farcaster",
     action: {
@@ -13,7 +13,7 @@ const frame = {
       name: "Play 2048 in Farcaster",
       url: appUrl,
       splashImageUrl: `${appUrl}/splash.png`,
-      splashBackgroundColor: "#581C87",
+      splashBackgroundColor: "#8e71a7",
     },
   },
 };

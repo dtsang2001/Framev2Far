@@ -5,7 +5,7 @@ const appUrl = process.env.NEXT_PUBLIC_URL;
 
 const frame = {
   version: "next",
-  imageUrl: `${appUrl}/frames/hello/opengraph-image`,
+  imageUrl: `https://game-2048-by-dangs.vercel.app/background.jpg`,
   button: {
     title: "Launch Frame",
     action: {
